@@ -1,0 +1,12 @@
+background no
+out_to_x no
+out_to_console yes
+update_interval 1
+total_run_times 0
+user_space none
+
+TEXT
+  ${cpu cpu0}%  ${exec sensors | grep 'Package' | cut -c16-23 }    \
+  ${exec amixer get Master -c 0 -M | grep -oE "[[:digit:]]*%"}     \
+  ${time %a %b %d}     \
+  ${time %H:%M:%S}
